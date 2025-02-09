@@ -8,7 +8,7 @@
 Уровень сложности: Средний
 Использованные инструменты: [foundry](https://book.getfoundry.sh/)
 
-Суть задания: дан [смарт-контракт](https://github.com/mtchuikov/ctfs/2025/BITSkrieg/assets/AngelInvestor.sol), написанный на Solidity. Для получения флага необходимо взломать его, выведя часть средств с баланса.
+Суть задания: дан [смарт-контракт](https://github.com/mtchuikov/ctfs/tree/main/2025/BITSkrieg/assets/AngelInvestor.sol), написанный на Solidity. Для получения флага необходимо взломать его, выведя часть средств с баланса.
 
 Примечание: во время соревнования для каждого пользователя контракт развертывался в отдельной тестовой сети со стартовым балансом в 500 ETH. Участнику выдавался заранее сгенерированный кошелек с небольшой суммой ETH. 
 
@@ -61,9 +61,9 @@
 
 Такое поведение - перевод ETH на любой аккаунт, включая принадлежащий смарт-контракту, а также изменение состояния только после перевода - явно указывает на наличие уязвимости, известной как [Reentrancy](https://docs.soliditylang.org/en/latest/security-considerations.html), которая заключается в непредусмотренном логикой программы повторном вызове функции до того, как интеракция полностью завершиться. Схематично она может быть представлена следующим образом:
 
-![reentrancy schema](https://github.com/mtchuikov/ctfs/2025/BITSkrieg/assets/reentrancy.png)
+![reentrancy schema](https://github.com/mtchuikov/ctfs/tree/main/2025/BITSkrieg/assets/reentrancy.png)
 
-В нашем случае атака реализуется весьма тривиально (полный код [контракта](https://github.com/mtchuikov/ctfs/2025/BITSkrieg/assets/AngelInvestorAttack.sol)):
+В нашем случае атака реализуется весьма тривиально (полный код [контракта](https://github.com/mtchuikov/ctfs/tree/main/2025/BITSkrieg/assets/AngelInvestorAttack.sol)):
 
 ```
     ...
