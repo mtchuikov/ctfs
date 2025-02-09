@@ -61,7 +61,7 @@
 
 Такое поведение - перевод ETH на любой аккаунт, включая принадлежащий смарт-контракту, а также изменение состояния только после перевода - явно указывает на наличие уязвимости, известной как [Reentrancy](https://docs.soliditylang.org/en/latest/security-considerations.html), которая заключается в непредусмотренном логикой программы повторном вызове функции до того, как интеракция полностью завершиться. Схематично она может быть представлена следующим образом:
 
-![reentrancy schema](https://github.com/mtchuikov/ctfs/tree/main/2025/BITSkrieg/assets/reentrancy.png)
+![reentrancy schema](https://github.com/mtchuikov/ctfs/blob/main/2025/BITSkrieg/assets/reentrancy.png?raw=true)
 
 В нашем случае атака реализуется весьма тривиально (полный код [контракта](https://github.com/mtchuikov/ctfs/tree/main/2025/BITSkrieg/assets/AngelInvestorAttack.sol)):
 
